@@ -1,16 +1,14 @@
-pipeline {
-    agent any
-    stages {
-		
-		
-		// ******ALL CODE TO BE ADDED BELOW THIS COMMENT******
-		//Code starts for stage Clean
+//Code starts for stage Clean
         stage('Clean') {
             steps {
                 sh 'mvn clean'
             }
         }
 		//Code ends for stage Clean
+		
+		
+	
+			
 		
 		//Code starts for stage Compile
 		stage('Compile') {
@@ -19,6 +17,8 @@ pipeline {
             }
         }
 		//Code Ends for stage Compile
+		
+				
 		//Code starts for stage Unit Test
         stage('Unit Test') {
             steps {
@@ -31,13 +31,10 @@ pipeline {
             }
         }
 		//Code ends for stage Unit Test
-	//Code starts for stage JaCoCo
-		stage('JaCoCo') {
-            steps {
-                sh 'mvn jacoco:report'
-            }
-        }
-		///Code starts for stage JaCoCo
+		
+		
+		
+		//Code starts for stage JaCoCo
 		stage('JaCoCo') {
             steps {
                 sh 'mvn jacoco:report'
@@ -76,6 +73,7 @@ pipeline {
 		
 		
 		
+		//Code starts for stage System Test
 		stage('System Test') {
             steps {
 				//Change git url below as per your forked github repository URL
@@ -88,8 +86,4 @@ pipeline {
 		// ******ALL CODE TO BE ADDED ABOVE THIS COMMENT******
     }
 }
-			
-		
-		// ******ALL CODE TO BE ADDED ABOVE THIS COMMENT******
-    }
-}
+© 2020 GitHub, Inc.
