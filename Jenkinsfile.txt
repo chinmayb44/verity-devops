@@ -37,16 +37,26 @@ pipeline {
                 sh 'mvn jacoco:report'
             }
         }
+		///Code starts for stage JaCoCo
+		stage('JaCoCo') {
+            steps {
+                sh 'mvn jacoco:report'
+            }
+        }
 		//Code ends for stage JaCoCo
-		/Code starts for stage Install
+		
+		
+		
+		//Code starts for stage Install
 		stage('Install') {
             steps {
                 sh 'mvn install -DskipTests'
             }
         }
-		//Code ends for stage Instal
+		//Code ends for stage Install
 		
-		/Code starts for stage Launch Tomcat Server
+		
+		//Code starts for stage Launch Tomcat Server
 		stage('Launch Tomcat Server') {
             steps {
                 sh '/tmp/apache-tomcat-9.0.20/bin/startup.sh'
@@ -66,7 +76,6 @@ pipeline {
 		
 		
 		
-		//Code starts for stage System Test
 		stage('System Test') {
             steps {
 				//Change git url below as per your forked github repository URL
